@@ -77,7 +77,8 @@ function RenderMovieDataAsTable(moviedata) {
 
 }
 
-function FindMovieById(id, listOfMovies) {
+// Basic use of For to search for an item
+function FindMovieById_Using_For_Loop(id, listOfMovies) {
 
     //return "Not implemented";
 
@@ -87,7 +88,25 @@ function FindMovieById(id, listOfMovies) {
         if (listOfMovies[i].id === id) {
 
             movie = listOfMovies[i];
-            break;
+            break; // since we found it, no need to continue with loop
+        }
+    }
+    return movie;
+
+}
+
+function FindMovieById(id, listOfMovies) {
+
+    //return "Not implemented";
+
+    let movie = {};
+    for (const currentMovie of listOfMovies) {
+
+        if (currentMovie.id === id) {
+
+            movie = currentMovie;
+            break; // since we found it, no need to continue with loop
+
         }
     }
     return movie;
