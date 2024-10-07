@@ -24,6 +24,8 @@ function SetUpMovieLoader() {
 
             let foundMovie = FindMovieById(107, moviedata);
             console.log(foundMovie);
+            let listOfDirectors = GetListOfDirectors(moviedata);
+            console.log(listOfDirectors.join('-'));
             RenderMovieDataAsTable(moviedata)
 
         })
@@ -94,8 +96,8 @@ function FindMovieById_Using_For_Loop(id, listOfMovies) {
     return movie;
 
 }
-
-function FindMovieById(id, listOfMovies) {
+//using for - of loop 
+function FindMovieById_For_Of(id, listOfMovies) {
 
     //return "Not implemented";
 
@@ -110,5 +112,46 @@ function FindMovieById(id, listOfMovies) {
         }
     }
     return movie;
+}
+
+function FindMovieById(id, listOfMovies) {
+
+    // let foundMovie = listOfMovies.find(function (currentMovie) { 
+    //     return currentMovie.id === id 
+    // });
+
+    // return foundMovie;
+
+    return listOfMovies.find(currentMovie => currentMovie.id === id);
+
+
+}
+
+function GetListOfDirectors_1(listOfMovies) {
+
+    let directors = [];
+    for (const currentMovie of listOfMovies) {
+
+        // console.log(currentMovie.director);
+
+        directors.push(currentMovie.director)
+    }
+
+    return directors;
+
+}
+
+function GetListOfDirectors(listOfMovies) {
+
+    // let directors = listOfMovies.map(function (currentMovie) {
+
+    //     return currentMovie.director
+    // })
+
+
+    // return directors;
+
+
+    return listOfMovies.map (currentMovie => currentMovie.director)
 
 }
